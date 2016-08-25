@@ -22,6 +22,7 @@ Route::get('datatables.data',array('uses' => 'SheetController@anyData',	'as' => 
 Route::get('/',array('uses' => 'SheetController@getIndex', 'as' => 'getIndex'));
 Route::get('edit/{id}',array('uses' => 'SheetController@patch', 'as' => 'sheet.patch'));
 Route::get('create',array('uses' => 'SheetController@create', 'as' => 'sheet.store'));
+Route::post('create',array('uses' => 'SheetController@create', 'as' => 'sheet.store'));
 Route::get('autocomplete',array('uses'=>'AutoCompleteController@index','as'=>'autocomplete'));
 Route::get('searchaccompaniment',array('uses'=>'AutoCompleteController@searchAccompaniment','as'=>'searchaccompaniment'));
 Route::get('searcharranger',array('uses'=>'AutoCompleteController@searchArranger','as'=>'searcharranger'));

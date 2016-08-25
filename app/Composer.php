@@ -13,7 +13,7 @@ class Composer extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Composer()
+    public function Sheet()
     {
         return $this->belongsTo('App\Sheet', 'id', 'composer_id');
     }
@@ -21,7 +21,7 @@ class Composer extends Model
     /**
      * Pull sheets with this model + id.
      */
-    public function Composers()
+    public function Sheets()
     {
         return $this->hasMany('App\Sheet');
     }

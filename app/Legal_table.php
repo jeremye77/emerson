@@ -13,7 +13,7 @@ class Legal_table extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Legal_table()
+    public function Sheet()
     {
         return $this->belongsTo('App\Sheet', 'id', 'legal_table_id');
     }
@@ -21,7 +21,7 @@ class Legal_table extends Model
     /**
      * Pull sheets with this model + id.
      */
-    public function Legal_tables()
+    public function Sheets()
     {
         return $this->hasMany('App\Sheet');
     }

@@ -13,7 +13,7 @@ class Arranger extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Arranger()
+    public function Sheet()
     {
         return $this->belongsTo('App\Sheet', 'id', 'composer_id');
     }
@@ -21,7 +21,7 @@ class Arranger extends Model
     /**
      * Pull sheets with this model + id.
      */
-    public function Arrangers()
+    public function Sheets()
     {
         return $this->hasMany('App\Sheet');
     }

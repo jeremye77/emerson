@@ -215,7 +215,7 @@
     });
     $(function () {
         $("#voicing_id").autocomplete({
-            minLength: 3,
+            minLength: 2,
             source: function (request, response) {
                 $.ajax({
                     url: "{{ route('searchvoicing') }}",

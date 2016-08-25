@@ -11,7 +11,7 @@ class Accompaniment extends Model
     /**
      * relate to sheet
      */
-    public function Accompaniment()
+    public function Sheet()
     {
         return $this->belongsTo('App\Sheet', 'id', 'accompaniment_id');
     }
@@ -20,7 +20,7 @@ class Accompaniment extends Model
     /**
      * Pull sheets with this model + id.
      */
-    public function Accompaniments()
+    public function Sheets()
     {
         return $this->hasMany('App\Sheet');
     }

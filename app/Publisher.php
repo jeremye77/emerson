@@ -13,7 +13,7 @@ class Publisher extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Publisher()
+    public function Sheet()
     {
         return $this->belongsTo('App\Sheet', 'id', 'publisher_id');
     }
@@ -21,7 +21,7 @@ class Publisher extends Model
     /**
      * Pull sheets with this model + id.
      */
-    public function Publishers()
+    public function Sheets()
     {
         return $this->hasMany('App\Sheet');
     }
