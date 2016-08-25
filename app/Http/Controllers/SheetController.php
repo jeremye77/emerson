@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests;
-
 use App\Accompaniment;
 use App\Arranger;
 use App\Composer;
 use App\Publisher;
 use App\Sheet;
 use App\Voicing;
-
+use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
 class SheetController extends Controller
@@ -55,14 +52,15 @@ class SheetController extends Controller
         //check if object exists in lookup table -- if so grab id -- if not create then grab id
         $sheet->publisher_id = Publisher::firstOrCreate(['publisher' => $request->input('publisher_id')])->id;
         $sheet->copyright_year = $request->input('copyright_year');
-        $sheet->quantity = $request->input('quantity');
+	$sheet->sheet_alternative_name  = $request->input('sheet_alternative_title'); 
+       $sheet->quantity = $request->input('quantity');
         $sheet->legal_table_id = $request->input('legal_table_id');
 
         $sheet->save();
 
         //send success and back to index
-        session()->flash('msg', $request->input('sheet_name') . 'saved!');
-        return $sheet;
+        $request->session()->flash('msg', $request->input('sheet_name') . 'saved!');
+	return view('sheets.store');
     }
 
     /**

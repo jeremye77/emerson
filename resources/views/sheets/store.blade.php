@@ -10,7 +10,7 @@
                 <div class="panel-body">
                     <!-- Display Validation Errors -->
                     @include('errors.errors')
-                    <form class="form-horizontal" method="post">
+                    <form action="/create" method="POST" class="form-horizontal">
                         <fieldset>
 
                             <!-- Form Name -->
@@ -126,8 +126,9 @@
                                     <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                     Save
                                 </button>
-                </fieldset>
-                </div>
+			</fieldset>
+		     </form>
+                   </div>
                 </div>
 
             </div>
