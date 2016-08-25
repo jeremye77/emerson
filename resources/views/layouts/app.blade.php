@@ -40,7 +40,7 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/sheet') }}">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 Emerson Sheet Music Library
             </a>
         </div>
