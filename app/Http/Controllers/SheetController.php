@@ -62,7 +62,7 @@ class SheetController extends Controller
 
         //send success and back to index
         session()->flash('msg', $request->input('sheet_name') . 'saved!');
-        return redirect()->back();
+        return $sheet;
     }
 
     /**
