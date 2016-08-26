@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
     <div class="container">
         <div class="col-sm-offset-2 col-sm-8">
@@ -54,18 +55,18 @@
 
                             <!-- Search input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="accompaniment_id">Accompaniment</label>
-                                <div class="col-md-4">
-                                    <input id="accompaniment_id" name="accompaniment_id" type="search" placeholder="Piano" class="form-control input-md">
+                                <label class="col-md-4 control-label" for="voicing_id">Voicing</label>
+                                <div class="col-md-2">
+                                    <input id="voicing_id" name="voicing_id" type="search" placeholder="SATB" class="form-control input-md required="">
 
                                 </div>
                             </div>
 
                             <!-- Search input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="voicing_id">Voicing</label>
-                                <div class="col-md-2">
-                                    <input id="voicing_id" name="voicing_id" type="search" placeholder="SATB" class="form-control input-md required="">
+                                <label class="col-md-4 control-label" for="accompaniment_id">Accompaniment</label>
+                                <div class="col-md-4">
+                                    <input id="accompaniment_id" name="accompaniment_id" type="search" placeholder="Piano" class="form-control input-md">
 
                                 </div>
                             </div>
