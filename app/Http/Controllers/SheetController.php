@@ -30,12 +30,9 @@ class SheetController extends Controller
         $this->validate($request, [
             'sheet_name' => 'required|max:255',
             'composer_id' => 'required|max:255',
-            'arranger_id' => 'required|max:255',
             'voicing_id' => 'required|max:255',
             'accompaniment_id' => 'required|max:255',
             'publisher_number' => 'required|max:255',
-            'publisher_id' => 'required|max:255',
-            'copyright_year' => 'required|max:255',
             'quantity' => 'required|max:5',
             'legal_table_id' => 'required|max:1'
         ]);
@@ -117,7 +114,7 @@ class SheetController extends Controller
 
         return $datatables->usingEloquent($sheets)
             ->addColumn('action', function ($sheets) {
-                return '<button class="btn btn-delete" data-remote="http://localhost/delete/' . $sheets->id . '">Delete</button>&nbsp;<button class="btn btn-info" onclick="location.href=\'/edit/' . $sheets->id . '\';">Edit</button>';
+                return '<button class="btn btn-delete" data-remote="/delete/' . $sheets->id . '">Delete</button>&nbsp;<button class="btn btn-info" onclick="location.href=\'/edit/' . $sheets->id . '\';">Edit</button>';
             })
             ->editColumn('id', 'ID: {{$id}}')
             ->make(true);
