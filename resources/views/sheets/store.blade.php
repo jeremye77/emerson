@@ -141,7 +141,7 @@
     $(function () {
 
         $("#accompaniment_id").autocomplete({
-            minLength: 3,
+            minLength: 2,
             source: function (request, response) {
                 $.ajax({
                     url: "{{ route('searchaccompaniment') }}",
@@ -160,7 +160,7 @@
     });
     $(function () {
         $("#arranger_id").autocomplete({
-            minLength: 3,
+            minLength: 2,
             source: function (request, response) {
                 $.ajax({
                     url: "{{ route('searcharranger') }}",
@@ -179,7 +179,7 @@
     });
     $(function () {
         $("#composer_id").autocomplete({
-            minLength: 3,
+            minLength: 2,
             source: function (request, response) {
                 $.ajax({
                     url: "{{ route('searchcomposer') }}",
@@ -198,7 +198,7 @@
     });
     $(function () {
         $("#publisher_id").autocomplete({
-            minLength: 3,
+            minLength: 2,
             source: function (request, response) {
                 $.ajax({
                     url: "{{ route('searchpublisher') }}",
@@ -217,7 +217,7 @@
     });
     $(function () {
         $("#voicing_id").autocomplete({
-            minLength: 2,
+            minLength: 1,
             source: function (request, response) {
                 $.ajax({
                     url: "{{ route('searchvoicing') }}",

@@ -20,13 +20,27 @@
 @stop
 
 @push('scripts')
+
 <script>
     $(function() {
         $('#sheets-table').DataTable({
             processing: true,
             serverSide: true,
             ajax: '{!! route('datatables.data') !!}',
-            columns: [
+            dom: 'Bfrtip',
+            buttons: [
+                   {
+                     extend: 'colvis',
+                     postfixButtons: [ 'colvisRestore' ]
+                   }
+                    ],
+            columnDefs: [
+                  {
+                    targets: -1,
+                    visible: false
+                  }
+                        ],
+		columns: [
                 { data: 'sheet_name', name: 'sheet_name' },
                 { data: 'sheet_alternative_name',  name: 'sheet_alternative_name'},
                 { data: 'composer.composer', name: 'composer.composer'},
@@ -37,11 +51,9 @@
                 { data: 'copyright_year', name: 'copyright_year'},
                 { data: 'quantity', name: 'quantity'},
                 { data: 'legal_table.legal', name: 'legal_table.legal'},
-                { data: 'action', name: 'action', orderable: false, searchable: false}
-
-
-            ]
-        });
+                { data: 'action', name: 'action', orderable: false, searchable: false},
+                         ]
+      });
     });
 </script>
 <script>

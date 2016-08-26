@@ -56,7 +56,7 @@ class SheetController extends Controller
         $sheet->save();
 
         //send success and back to index
-        $request->session()->flash('msg', $request->input('sheet_name') . 'saved!');
+        $request->session()->flash('alert-success', 'Nice! ' .$request->input('sheet_name'). ' Saved.');
 	return view('sheets.store');
     }
 
