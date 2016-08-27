@@ -32,7 +32,6 @@ class SheetController extends Controller
             'composer_id' => 'required|max:255',
             'voicing_id' => 'required|max:255',
             'accompaniment_id' => 'required|max:255',
-            'publisher_number' => 'required|max:255',
             'quantity' => 'required|max:5',
             'legal_table_id' => 'required|max:1'
         ]);
@@ -56,7 +55,7 @@ class SheetController extends Controller
         $sheet->save();
 
         //send success and back to index
-        $request->session()->flash('alert-success', 'Nice! ' .$request->input('sheet_name'). ' Saved.');
+        $request->session()->flash('alert-success', 'Nice! ' .$request->input('sheet_name'). ' saved.');
 	return view('sheets.store');
     }
 

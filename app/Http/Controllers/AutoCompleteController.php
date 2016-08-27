@@ -87,7 +87,7 @@ class AutoCompleteController extends Controller
 
         $data = array();
         foreach ($publishers as $publisher) {
-            $data[] = array('value' => $publisher->accompaniment, 'id' => $publisher->id);
+            $data[] = array('value' => $publisher->publisher, 'id' => $publisher->id);
         }
         if (count($data))
             return $data;
