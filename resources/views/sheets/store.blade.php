@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="container">
         <div class="col-sm-offset-2 col-sm-8">
@@ -7,7 +6,6 @@
                 <div class="panel-heading">
                     New Entry
                 </div>
-
                 <div class="panel-body">
                     <!-- Display Validation Errors -->
                     @include('errors.errors')
@@ -21,7 +19,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="sheet_name">Title</label>
                                 <div class="col-md-5">
-                                    <input id="sheet_name" name="sheet_name" type="text" placeholder="" class="form-control input-md" required="">
+				   <input value="{{ old('sheet_name') }}" id="sheet_name" name="sheet_name" type="text" placeholder="" class="form-control input-md" required="">
 
                                 </div>
                             </div>
@@ -30,7 +28,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="sheet_alternative_title">Alternative Title</label>
                                 <div class="col-md-5">
-                                    <input id="sheet_alternative_title" name="sheet_alternative_title" type="text" placeholder="Optional" class="form-control input-md">
+                                    <input value="{{ old('sheet_alternative_title') }}" id="sheet_alternative_title" name="sheet_alternative_title" type="text" placeholder="Optional" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -39,7 +37,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="composer_id">Composer</label>
                                 <div class="col-md-5">
-                                    <input id="composer_id" name="composer_id" type="search" class="form-control input-md">
+                                    <input value="{{ old('composer_id') }}" id="composer_id" name="composer_id" type="search" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -48,7 +46,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="arranger_id">Arranger</label>
                                 <div class="col-md-5">
-                                    <input id="arranger_id" name="arranger_id" type="search" placeholder="Optional" class="form-control input-md">
+                                    <input value="{{ old('arranger_id') }}" id="arranger_id" name="arranger_id" type="search" placeholder="Optional" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -57,7 +55,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="voicing_id">Voicing</label>
                                 <div class="col-md-2">
-                                    <input id="voicing_id" name="voicing_id" type="search" placeholder="SATB" class="form-control input-md required="">
+                                    <input value="{{ old('voicing_id') }}" id="voicing_id" name="voicing_id" type="search" placeholder="SATB" class="form-control input-md required="">
 
                                 </div>
                             </div>
@@ -66,7 +64,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="accompaniment_id">Accompaniment</label>
                                 <div class="col-md-4">
-                                    <input id="accompaniment_id" name="accompaniment_id" type="search" placeholder="Piano" class="form-control input-md">
+                                    <input value="{{ old('accompaniment_id') }}" id="accompaniment_id" name="accompaniment_id" type="search" placeholder="Piano" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -75,7 +73,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="publisher_number">Publisher's Number</label>
                                 <div class="col-md-5">
-                                    <input id="publisher_number" name="publisher_number" type="text" placeholder="SING123456" class="form-control input-md">
+                                    <input value="{{ old('publisher_number') }}" id="publisher_number" name="publisher_number" type="text" placeholder="SING123456" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -84,7 +82,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="publisher_id">Publisher</label>
                                 <div class="col-md-5">
-                                    <input id="publisher_id" name="publisher_id" type="text" placeholder="" class="form-control input-md">
+                                    <input value="{{ old('publisher_id') }}" id="publisher_id" name="publisher_id" type="text" placeholder="" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -93,7 +91,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="copyright_year">Copyright</label>
                                 <div class="col-md-2">
-                                    <input id="copyright_year" name="copyright_year" type="text" placeholder="2016" class="form-control input-md">
+                                    <input value="{{ old('copyright_year') }}" id="copyright_year" name="copyright_year" type="text" placeholder="2016" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -102,7 +100,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="quantity">Quantity</label>
                                 <div class="col-md-2">
-                                    <input id="quantity" name="quantity" type="text" placeholder="0" class="form-control input-md" required="">
+                                    <input value="{{ old('quantity') }}" id="quantity" name="quantity" type="text" placeholder="0" class="form-control input-md" required="">
 
                                 </div>
                             </div>

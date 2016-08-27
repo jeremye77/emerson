@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <table class="table table-bordered" id="sheets-table">
+    <table class="table table-striped table-bordered" id="sheets-table" cellspacing="0" width="100%">
         <thead>
         <tr>
             <th>Title</th>
@@ -27,7 +27,12 @@
             processing: true,
             serverSide: true,
             ajax: '{!! route('datatables.data') !!}',
-            dom: 'Bfrtip',
+            dom: 'Blfrtip',
+            stateSave: true,
+            //pageLength: 15,
+            ScrollY: '70vh',
+            scrollCollapse: true,
+            lengthMenu : [[15, 25, 50, 75, 100,  -1], [15, 25, 50, 75, 100, "All"]],
             buttons: [
                    {
                      extend: 'colvis',

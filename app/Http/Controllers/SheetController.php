@@ -37,6 +37,7 @@ class SheetController extends Controller
         ]);
 
         //build and save query
+	// TODO: This will accept and insert an empty value. I accept that over inserting "none" into the lookup tables. Though this might be riding on a bug or some such. Do some real validation
         $sheet = new Sheet;
         $sheet->sheet_name = $request->input('sheet_name');
         //check if object exists in lookup table -- if so grab id -- if not create then grab id
@@ -56,7 +57,7 @@ class SheetController extends Controller
 
         //send success and back to index
         $request->session()->flash('alert-success', 'Nice! ' .$request->input('sheet_name'). ' saved.');
-	return view('sheets.store');
+        return view('sheets.store')->withInput($request);	
     }
 
     /**
