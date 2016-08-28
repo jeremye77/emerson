@@ -67,7 +67,7 @@
                         </ul>
                     </li>
                 @endif
-                <li><a href="{{ url('/create') }}">Add</a></li>
+                <li><a href="{{ url('/create') }}">Add Title</a></li>
             </ul>
         </div>
     </div>
