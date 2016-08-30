@@ -69,9 +69,11 @@
         </div>
     </div>
 </nav>
-
+@include('layouts.storemodal')
 @yield('content')
-
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#formStore">
+    Add Title
+</button>
 <!-- JavaScripts -->
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.6/jq-2.2.3/dt-1.10.12/b-1.2.2/b-colvis-1.2.2/cr-1.3.2/r-2.1.0/datatables.min.js"></script>
 <script>$('div.flash-message').delay(3500).slideUp(800);</script>
