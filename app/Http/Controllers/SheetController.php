@@ -13,7 +13,7 @@ use Yajra\Datatables\Datatables;
 
 class SheetController extends Controller
 {
-        public function index()
+    public function index()
     {
         return view('sheets.index');
 
@@ -37,7 +37,7 @@ class SheetController extends Controller
         ]);
 
         //build and save query
-	// TODO: This will accept and insert an empty value. I accept that over inserting "none" into the lookup tables. Though this might be riding on a bug or some such. Do some real validation
+        // TODO: This will accept and insert an empty value. I accept that over inserting "none" into the lookup tables. Though this might be riding on a bug or some such. Do some real validation
         $sheet = new Sheet;
         $sheet->sheet_name = $request->input('sheet_name');
         //check if object exists in lookup table -- if so grab id -- if not create then grab id
@@ -49,15 +49,15 @@ class SheetController extends Controller
         //check if object exists in lookup table -- if so grab id -- if not create then grab id
         $sheet->publisher_id = Publisher::firstOrCreate(['publisher' => $request->input('publisher_id')])->id;
         $sheet->copyright_year = $request->input('copyright_year');
-	$sheet->sheet_alternative_name  = $request->input('sheet_alternative_title'); 
-       $sheet->quantity = $request->input('quantity');
+        $sheet->sheet_alternative_name  = $request->input('sheet_alternative_title');
+        $sheet->quantity = $request->input('quantity');
         $sheet->legal_table_id = $request->input('legal_table_id');
 
         $sheet->save();
 
         //send success and back to index
         $request->session()->flash('alert-success', 'Nice! ' .$request->input('sheet_name'). ' saved.');
-        return view('sheets.store')->withInput($request);	
+        return view('sheets.store')->withInput($request);
     }
 
     /**
@@ -106,13 +106,22 @@ class SheetController extends Controller
 
     /**
      * @param Datatables $datatables
-     * @return \Illuminate\Http\JsonResponse
+     * @return mixed
      */
     public function anyData(Datatables $datatables)
     {
-        $sheets = Sheet::with('composer', 'arranger', 'accompaniment', 'legal_table', 'publisher', 'voicing')->select('sheets.*');
+        $sheets = Sheet::join('accompaniments', 'sheets.accompaniment_id', '=', 'accompaniments.id')
+            ->join('arrangers', 'sheets.arranger_id', '=', 'arrangers.id')
+            ->join('composers', 'sheets.composer_id', '=', 'composers.id')
+            ->join('legal_tables', 'sheets.legal_table_id', '=', 'legal_tables.id')
+            ->join('publishers', 'sheets.publisher_id', '=', 'publishers.id')
+            ->join('voicings', 'sheets.voicing_id', '=', 'voicings.id')
+            ->select('sheets.id as id','sheets.sheet_name as name', 'sheets.sheet_alternative_name as altname', 'composers.composer as composer',
+                        'arrangers.arranger as arranger', 'voicings.voicing as voicing', 'accompaniments.accompaniment as accompaniment',
+                            'sheets.publisher_number as publisherno', 'publishers.publisher as publisher',
+                                'sheets.copyright_year as copyright', 'sheets.quantity as quantity', 'legal_tables.legal as legal');
 
-        return $datatables->usingEloquent($sheets)
+        return Datatables::of($sheets)
             ->addColumn('action', function ($sheets) {
                 return '<button class="btn btn-delete" data-remote="/delete/' . $sheets->id . '">Delete</button>&nbsp;<button class="btn btn-info" onclick="location.href=\'/edit/' . $sheets->id . '\';">Edit</button>';
             })

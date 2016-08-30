@@ -6,6 +6,7 @@
             <th>Title</th>
             <th>Alt Title</th>
             <th>Composer</th>
+            <th>Arranger</th>
             <th>Voicing</th>
             <th>Acc.</th>
             <th>Publisher</th>
@@ -29,36 +30,27 @@
             ajax: '{!! route('datatables.data') !!}',
             dom: 'Blfrtip',
             stateSave: true,
-            //pageLength: 15,
-            ScrollY: '70vh',
-            scrollCollapse: true,
-            lengthMenu : [[15, 25, 50, 75, 100,  -1], [15, 25, 50, 75, 100, "All"]],
+            paginate: false,
             buttons: [
                    {
                      extend: 'colvis',
                      postfixButtons: [ 'colvisRestore' ]
                    }
                     ],
-            columnDefs: [
-                  { 
-                    'visible': false, 'targets': [-1,5,6,7,8,9] 
-		  },
-		  {
-                   'searchable': true, 'targets': [0,1,2,3,4,5,6,7,8,9]
-                  }
-                        ],
+
 		columns: [
-                { data: 'sheet_name', name: 'sheet_name' },
-                { data: 'sheet_alternative_name',  name: 'sheet_alternative_name'},
-                { data: 'composer.composer', name: 'composer.composer'},
-                { data: 'voicing.voicing', name: 'voicing.voicing'},
-                { data: 'accompaniment.accompaniment', name: 'accompaniment.accompaniment'},
-                { data: 'publisher.publisher', name: 'publisher.publisher'},
-                { data: 'publisher_number', name: 'publisher_number'},
-                { data: 'copyright_year', name: 'copyright_year'},
-                { data: 'quantity', name: 'quantity'},
-                { data: 'legal_table.legal', name: 'legal_table.legal'},
-                { data: 'action', name: 'action', orderable: false, searchable: false},
+                { data: 'name', name: 'sheet_name'},
+                { data: 'altname',  name: 'sheet_alternative_name'},
+                { data: 'composer', name: 'composer'},
+                { data: 'arranger', name: 'arranger'},
+                { data: 'voicing', name: 'voicing'},
+                { data: 'accompaniment', name: 'accompaniment'},
+                { data: 'publisher', name: 'publisher', visible: false},
+                { data: 'publisherno', name: 'publisher', visible: false},
+                { data: 'copyright', name: 'copyright_year', visible: false},
+                { data: 'quantity', name: 'quantity', searchable: false, visible: false},
+                { data: 'legal', name: 'legal', searchable: false, visible: false},
+                { data: 'action', name: 'action', orderable: false, searchable: false, visible: false}
                          ]
       });
     });
